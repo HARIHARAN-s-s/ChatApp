@@ -74,16 +74,17 @@ ping <peer_ip>
 ping 192.168.1.30   # From host to RuggedBoard
 
 ```
-**Ping from RuggedBoard to Host**
-![Ping2](img/ping2.png)
+
+**Ping from Host to RuggedBoard**
+![Ping1](img/ping1.png)
 
 
 ```bash
 
 ping 192.168.1.15   # From RuggedBoard to host
 ```
-**Ping from Host to RuggedBoard**
-![Ping1](img/ping1.png)
+**Ping from RuggedBoard to Host**
+![Ping2](img/ping2.png)
 
 ---
 
