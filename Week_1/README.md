@@ -51,8 +51,10 @@ The application requires 3 command-line arguments:
 ```bash
 ./chat 5001 192.168.1.15 5002
 ```
-**Ping from Host to RuggedBoard**
-![Ping1](img/ping1.png)
+
+**RuggedBoard Side**
+![RuggedBoard Terminal](img/rb.png)
+
 
 Replace the IPs and ports according to your setup.
 
@@ -80,9 +82,9 @@ ping 192.168.1.30   # From host to RuggedBoard
 
 ping 192.168.1.15   # From RuggedBoard to host
 ```
+**Ping from Host to RuggedBoard**
+![Ping1](img/ping1.png)
 
-**RuggedBoard Side**
-![RuggedBoard Terminal](img/rb.png)
 ---
 
 ## 📦 Features
