@@ -7,7 +7,7 @@ This project implements a simple UDP-based full-duplex chat application written 
 ## 📸 Screenshots
 
 **Host Side**
-![Host Terminal](host.png)
+![Host Terminal](img/host.png)
 
 **Ping from Host to RuggedBoard**
 ![Ping1](ping1.png)
