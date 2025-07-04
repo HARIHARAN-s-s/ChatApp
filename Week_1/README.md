@@ -4,19 +4,6 @@ This project implements a simple UDP-based full-duplex chat application written 
 
 ---
 
-## 📸 Screenshots
-
-**Host Side**
-![Host Terminal](img/host.png)
-
-**Ping from Host to RuggedBoard**
-![Ping1](ping1.png)
-
-**Ping from RuggedBoard to Host**
-![Ping2](ping2.png)
-
-**RuggedBoard Side**
-![RuggedBoard Terminal](rb.png)
 
 ---
 
@@ -55,12 +42,17 @@ The application requires 3 command-line arguments:
 **Example 1: Run on Host Machine**
 ```bash
 ./chat 5002 192.168.1.30 5001
+
 ```
+**Host Side**
+![Host Terminal](img/host.png)
 
 **Example 2: Run on RuggedBoard A5D2X**
 ```bash
 ./chat 5001 192.168.1.15 5002
 ```
+**Ping from Host to RuggedBoard**
+![Ping1](img/ping1.png)
 
 Replace the IPs and ports according to your setup.
 
@@ -78,9 +70,19 @@ ping <peer_ip>
 
 ```bash
 ping 192.168.1.30   # From host to RuggedBoard
+
+```
+**Ping from RuggedBoard to Host**
+![Ping2](img/ping2.png)
+
+
+```bash
+
 ping 192.168.1.15   # From RuggedBoard to host
 ```
 
+**RuggedBoard Side**
+![RuggedBoard Terminal](img/rb.png)
 ---
 
 ## 📦 Features
