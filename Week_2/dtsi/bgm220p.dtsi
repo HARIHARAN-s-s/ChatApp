@@ -1,0 +1,89 @@
+#include <arm/armv7-m.dtsi>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+#include "gpio_gecko.h"
+
+/ {
+    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        cpu0: cpu@0 {
+            compatible = "arm,cortex-m33";
+            reg = <0>;
+        };
+    };
+
+    soc {
+        compatible = "simple-bus";
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+
+        nvic: interrupt-controller@e000e100 {
+            compatible = "arm,v7m-nvic";
+            reg = <0xe000e100 0xc00>;
+            interrupt-controller;
+            #interrupt-cells = <2>;
+            arm,num-irq-priority-bits = <3>;  /* Required */
+        };
+
+        flash_controller: flash-controller@400e0000 {
+            compatible = "silabs,gecko-flash-controller";
+            reg = <0x400e0000 0x104>;
+            interrupts = <25 0>;
+
+            #address-cells = <1>;
+            #size-cells = <1>;
+
+            flash0: flash@0 {
+                compatible = "soc-nv-flash";
+                reg = <0x00000000 0x80000>;  /* 512 KB */
+                write-block-size = <4>;
+                erase-block-size = <2048>;
+            };
+        };
+
+        sram0: memory@20000000 {
+            compatible = "mmio-sram";
+            reg = <0x20000000 0x8000>;  /* 32 KB */
+        };
+
+        gpio: gpio@4000a400 {
+            compatible = "silabs,gecko-gpio";
+            reg = <0x4000a400 0xc00>;
+            interrupts = <10 2 18 2>;
+
+            ranges;
+            #address-cells = <1>;
+            #size-cells = <1>;
+
+            gpioa: gpio@4000a000 {
+                compatible = "silabs,gecko-gpio-port";
+                reg = <0x4000a000 0x30>;
+                gpio-controller;
+                #gpio-cells = <2>;
+                peripheral-id = <0>;
+                status = "okay";
+            };
+
+            gpiob: gpio@4000a030 {
+                compatible = "silabs,gecko-gpio-port";
+                reg = <0x4000a030 0x30>;
+                gpio-controller;
+                #gpio-cells = <2>;
+                peripheral-id = <1>;
+                status = "okay";
+            };
+        };
+
+        usart1: usart@40010400 {
+            compatible = "silabs,gecko-usart";
+            reg = <0x40010400 0x400>;
+            interrupts = <20 0>, <21 0>;
+            interrupt-names = "rx", "tx";
+            peripheral-id = <1>;
+            status = "okay";
+        };
+    };
+};
+

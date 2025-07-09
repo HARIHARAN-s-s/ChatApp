@@ -1,0 +1,21 @@
+# Copyright (c) 2025 Your Name
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_SERIES_BGM220P
+    bool
+    select SOC_FAMILY_SILABS_BGM
+    help
+      Silicon Labs BGM220P Series MCU
+
+config SOC_PART_NUMBER_BGM220PC22HNA
+    bool
+    select SOC_SERIES_BGM220P
+
+config SOC_SERIES
+    default "bgm220p" if SOC_SERIES_BGM220P
+
+config SOC
+    default "bgm220pc22hna" if SOC_PART_NUMBER_BGM220PC22HNA
+
+config SOC_PART_NUMBER
+    default "BGM220PC22HNA" if SOC_PART_NUMBER_BGM220PC22HNA

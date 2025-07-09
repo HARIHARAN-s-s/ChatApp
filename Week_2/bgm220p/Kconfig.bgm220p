@@ -1,0 +1,2 @@
+rsource "boards/arm/bgm220p/Kconfig.bgm220p"
+

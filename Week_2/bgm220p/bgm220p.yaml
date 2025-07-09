@@ -1,0 +1,16 @@
+identifier: bgm220p
+name: Silicon Labs BGM220P
+vendor: silabs
+type: mcu
+arch: arm
+flash: 512
+ram: 32
+toolchain:
+  - zephyr
+  - gnuarmemb
+supported:
+  - gpio
+  - uart
+  - i2c
+  - spi
+soc: bgm220p

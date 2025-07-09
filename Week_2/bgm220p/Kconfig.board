@@ -1,0 +1,4 @@
+config BOARD_BGM220P
+    bool "Silicon Labs BGM220P Module"
+    select SOC_PART_NUMBER_EFR32BG22C224F512IM40
+

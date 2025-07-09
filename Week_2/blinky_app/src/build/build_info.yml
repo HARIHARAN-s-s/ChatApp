@@ -1,0 +1,58 @@
+cmake:
+  application:
+    configuration-dir: '/workdir/zephyrproject/blinky_app'
+    source-dir: '/workdir/zephyrproject/blinky_app'
+  board:
+    name: 'nucleo_f446re'
+    path:
+     - '/workdir/zephyrproject/zephyr/boards/st/nucleo_f446re'
+    qualifiers: 'stm32f446xx'
+    revision: ''
+  devicetree:
+    bindings-dirs:
+     - '/workdir/zephyrproject/zephyr/dts/bindings'
+    files:
+     - '/workdir/zephyrproject/zephyr/boards/st/nucleo_f446re/nucleo_f446re.dts'
+    include-dirs:
+     - '/workdir/zephyrproject/modules/hal/ambiq/dts'
+     - '/workdir/zephyrproject/modules/hal/atmel/include'
+     - '/workdir/zephyrproject/modules/hal/bouffalolab/include'
+     - '/workdir/zephyrproject/modules/hal/bouffalolab/include/zephyr'
+     - '/workdir/zephyrproject/modules/hal/gigadevice/include'
+     - '/workdir/zephyrproject/modules/hal/microchip/include'
+     - '/workdir/zephyrproject/modules/hal/microchip/dts'
+     - '/workdir/zephyrproject/modules/hal/nuvoton/dts'
+     - '/workdir/zephyrproject/modules/hal/nxp/dts'
+     - '/workdir/zephyrproject/modules/hal/stm32/dts'
+     - '/workdir/zephyrproject/modules/hal/ti/dts'
+     - '/workdir/zephyrproject/zephyr/include'
+     - '/workdir/zephyrproject/zephyr/include/zephyr'
+     - '/workdir/zephyrproject/zephyr/dts/common'
+     - '/workdir/zephyrproject/zephyr/dts/vendor'
+     - '/workdir/zephyrproject/zephyr/dts/rx'
+     - '/workdir/zephyrproject/zephyr/dts/x86'
+     - '/workdir/zephyrproject/zephyr/dts/xtensa'
+     - '/workdir/zephyrproject/zephyr/dts/sparc'
+     - '/workdir/zephyrproject/zephyr/dts/riscv'
+     - '/workdir/zephyrproject/zephyr/dts/posix'
+     - '/workdir/zephyrproject/zephyr/dts/arm64'
+     - '/workdir/zephyrproject/zephyr/dts/arm'
+     - '/workdir/zephyrproject/zephyr/dts/arc'
+     - '/workdir/zephyrproject/zephyr/dts'
+  kconfig:
+    files:
+     - '/workdir/zephyrproject/zephyr/boards/st/nucleo_f446re/nucleo_f446re_defconfig'
+     - '/workdir/zephyrproject/blinky_app/prj.conf'
+    user-files:
+     - '/workdir/zephyrproject/blinky_app/prj.conf'
+  toolchain:
+    name: 'zephyr'
+    path: '/opt/toolchains/zephyr-sdk-0.17.2'
+  zephyr:
+    version: '4.2.00-rc1'
+    zephyr-base: '/workdir/zephyrproject/zephyr'
+version: '0.1.0'
+west:
+  command: '/opt/python/venv/bin/west build -b nucleo_f446re /workdir/zephyrproject/blinky_app --pristine'
+  topdir: '/workdir/zephyrproject'
+  version: '1.4.0'

@@ -1,0 +1,96 @@
+#include <arm/armv7-m.dtsi>
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&sram0 {
+	compatible = "mmio-sram";
+	reg = <0x20000000 0x8000>;
+};
+
+&nvic {
+	arm,num-irq-priority-bits = <3>;
+};
+
+soc {
+	msc: flash-controller@400e0000 {
+		compatible = "silabs,gecko-flash-controller";
+		reg = <0x400e0000 0x104>;
+		interrupts = <25 0>;
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		flash0: flash@0 {
+			compatible = "soc-nv-flash";
+			reg = <0x0 0x80000>;
+			write-block-size = <4>;
+			erase-block-size = <2048>;
+		};
+	};
+
+	gpio: gpio@4000a400 {
+		compatible = "silabs,gecko-gpio";
+		reg = <0x4000a400 0xc00>;
+		interrupts = <10 2 18 2>;
+		interrupt-names = "GPIO_EVEN", "GPIO_ODD";
+
+		ranges;
+		#address-cells = <1>;
+		#size-cells = <1>;
+
+		gpioa: gpio@4000a000 {
+			compatible = "silabs,gecko-gpio-port";
+			reg = <0x4000a000 0x30>;
+			peripheral-id = <0>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			status = "okay";
+		};
+
+		gpiob: gpio@4000a030 {
+			compatible = "silabs,gecko-gpio-port";
+			reg = <0x4000a030 0x30>;
+			peripheral-id = <1>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			status = "okay";
+		};
+
+		gpioc: gpio@4000a060 {
+			compatible = "silabs,gecko-gpio-port";
+			reg = <0x4000a060 0x30>;
+			peripheral-id = <2>;
+			gpio-controller;
+			#gpio-cells = <2>;
+			status = "okay";
+		};
+	};
+
+	usart1: usart@40010400 {
+		compatible = "silabs,gecko-usart";
+		reg = <0x40010400 0x400>;
+		interrupts = <20 0>, <21 0>;
+		interrupt-names = "rx", "tx";
+		peripheral-id = <1>;
+		status = "disabled";
+	};
+
+	i2c0: i2c@4000c000 {
+		compatible = "silabs,gecko-i2c";
+		clock-frequency = <100000>;
+		reg = <0x4000c000 0x400>;
+		interrupts = <17 0>;
+		status = "disabled";
+	};
+
+	rtcc0: rtcc@40042000 {
+		compatible = "silabs,gecko-rtcc";
+		reg = <0x40042000 0x184>;
+		interrupts = <31 0>;
+		status = "disabled";
+	};
+};
+
+&pinctrl {
+	status = "okay";
+};
+
