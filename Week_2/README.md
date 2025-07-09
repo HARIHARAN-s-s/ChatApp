@@ -11,7 +11,7 @@ The goal of this project is to enable Zephyr RTOS support on the BGM220P, allowi
 * [x] Custom board definition created
 * [x] SoC series and part number integrated
 * [x] Device tree files created and verified
-* [ ] Toolchain detection issue resolved
+* [x] Toolchain detection issue resolved
 * [ ] Configuration phase builds successfully
 * [ ] Application runtime testing *(in progress)*
 
